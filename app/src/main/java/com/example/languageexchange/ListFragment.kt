@@ -7,8 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragement_list.*
 
 class ListFragment : Fragment() {
+    //데이터를 담을 그릇, 배열
+    var modelList = ArrayList<MyModel>()
+    private lateinit var myRecyclerAdapter: MyRecyclerAdapter
 
     companion object{
         const val TAG : String = "로그"
@@ -21,14 +26,35 @@ class ListFragment : Fragment() {
     //메모리에 올라갔을 때
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG,"HomeFragment - onCreate() called")
+        Log.d(TAG,"ListFragment - onCreate() called")
 
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        Log.d(TAG,"MainActivity - 반복문 전 this.modelList.size : ${this.modelList}")
+        for(i in 1..10){
+            var myModel = MyModel("안녕 $i", "hello $i")
+            this.modelList.add(myModel)
+        }
+        Log.d(TAG,"MainActivity - 반복문 후 this.modelList.size : ${this.modelList}")
+
+        //어댑터 인스턴스 생성
+        myRecyclerAdapter = MyRecyclerAdapter()
+        myRecyclerAdapter.submitList(this.modelList)
+
+        //리사이클러뷰 설정
+        my_recycler_view.apply {
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+            //어댑터 장착
+            adapter = myRecyclerAdapter
+
+        }
+    }
     //프레그먼트를 안고 있는 엑티비티에 붙었을 때
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(TAG,"HomeFragment - onAttach() called")
+        Log.d(TAG,"ListFragment - onAttach() called")
     }
 
     //뷰가 생성 되었을 때
@@ -38,7 +64,7 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG,"HomeFragment - onCreateView() called")
+        Log.d(TAG,"ListFragment - onCreateView() called")
 
         val view = inflater.inflate(R.layout.fragement_list, container, false)
         return view

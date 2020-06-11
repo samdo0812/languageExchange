@@ -6,11 +6,12 @@
     android:background="#FFEB3B"
     android:orientation="vertical"
     android:gravity="center"
+    android:padding="20dp"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="list"
-        android:textSize="50dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 </LinearLayout>

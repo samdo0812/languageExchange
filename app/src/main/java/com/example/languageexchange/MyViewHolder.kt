@@ -1,0 +1,27 @@
+package com.example.languageexchange
+
+import android.util.Log
+import android.view.TextureView
+import android.view.View
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.layout_recycler_item.view.*
+
+//커스텀 뷰홀더
+class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    val TAG: String = "로그"
+
+    private val lang1TextView = itemView.lang1
+    private val lang2TextView = itemView.lang2
+
+    //생성자
+    init {
+        Log.d("TAG", "MyViewHolder - init() called")
+    }
+
+    //데이터와 뷰를 묶는다
+    fun bind(myModel: MyModel){
+        Log.d("TAG", "MyViewHolder - bind() called")
+        lang1TextView.text = myModel.lang1
+        lang2TextView.text = myModel.lang2
+    }
+}
