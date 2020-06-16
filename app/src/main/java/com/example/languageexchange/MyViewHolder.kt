@@ -11,7 +11,8 @@ class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     val TAG: String = "로그"
 
     private val lang1TextView = itemView.lang1
-    private val lang2TextView = itemView.lang2
+    //private val lang2TextView = itemView.lang2
+
 
     //생성자
     init {
@@ -22,6 +23,7 @@ class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     fun bind(myModel: MyModel){
         Log.d("TAG", "MyViewHolder - bind() called")
         lang1TextView.text = myModel.lang1
-        lang2TextView.text = myModel.lang2
+      //  lang2TextView.text = myModel.lang2
+
     }
 }

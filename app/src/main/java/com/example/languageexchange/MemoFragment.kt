@@ -1,12 +1,15 @@
 package com.example.languageexchange
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_memo_list.*
 
 class MemoFragment : Fragment() {
 
@@ -34,13 +37,25 @@ class MemoFragment : Fragment() {
     //뷰가 생성 되었을 때
     //프래그먼트와 레이아웃을 연결시켜주는 부분이다.
     override fun onCreateView(
+
+
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         Log.d(TAG,"MemoFragment - onCreateView() called")
-
-        val view = inflater.inflate(R.layout.fragement_memo, container, false)
+        val view = inflater.inflate(R.layout.activity_memo_list, container, false)
         return view
     }
+
 }
+
+
+/*
+추가하기
+프래그먼트 -> 레이아웃
+fab.setOnClickListener { view ->
+    val intent = Intent(context, DetailActivity::class.java)
+    startActivity(intent)
+}*/

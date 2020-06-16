@@ -1,5 +1,6 @@
 package com.example.languageexchange
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_memo_list.*
 import kotlinx.android.synthetic.main.fragement_list.*
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().add(R.id.fragments_frame, ListFragment).commit()
 
     }
+
 
     //바텀네비게이션 아이템 클릭 리스너 설정
     private val onBottomNavItemSelectedListner = BottomNavigationView.OnNavigationItemSelectedListener{
