@@ -8,7 +8,6 @@ import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_memo_list.*
 import kotlinx.android.synthetic.main.fragement_list.*
 
 class MainActivity : AppCompatActivity() {
