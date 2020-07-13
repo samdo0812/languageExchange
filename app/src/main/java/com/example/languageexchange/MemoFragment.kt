@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.fragement_memo.*
 class MemoFragment : Fragment() {
 
     //private lateinit var myRecyclerAdapter_memo: MyRecyclerAdapter_memo
-
+    lateinit var getWord :String
 
     companion object{
         const val TAG : String = "로그"
@@ -35,13 +35,19 @@ class MemoFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        //go to word add acitivty
         add_word.setOnClickListener {
             activity?.let {
-                val intent = Intent(context, AddWordAcitivity::class.java)
+                val intent = Intent(activity, AddWordAcitivity::class.java)
                 startActivity(intent)
                 }
             }
-        }
+
+        //word add from acitivity
+      // val data = arguments?.getString("word")
+        //Log.d("word",data)
+
+    }
 
 
     //프레그먼트를 안고 있는 엑티비티에 붙었을 때

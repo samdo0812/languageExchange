@@ -20,8 +20,14 @@
         android:background="#A24A4A"/>
 
     <EditText
-        android:id="@+id/add_word_mean"
+        android:id="@+id/addword_mean"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="뜻"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="go"
+        android:id="@+id/go_memo"/>
 </LinearLayout>
