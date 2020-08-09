@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddWordAcitivity">
+    tools:context=".memo.AddWord">
 
 
     <EditText
@@ -13,11 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:hint="단어"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="#A24A4A"/>
 
     <EditText
         android:id="@+id/addword_mean"

@@ -1,4 +1,4 @@
-package com.example.languageexchange
+package com.example.languageexchange.list
 
 import android.content.Context
 import android.os.Bundle
@@ -8,17 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.languageexchange.MyRecyclerAdapter
+import com.example.languageexchange.R
 import kotlinx.android.synthetic.main.fragement_list.*
 
 class ListFragment : Fragment() {
     //데이터를 담을 그릇, 배열
-    var modelList = ArrayList<MyModel>()
+    var modelList = ArrayList<ListModel>()
     private lateinit var myRecyclerAdapter: MyRecyclerAdapter
 
     companion object{
         const val TAG : String = "로그"
 
-        fun  newInstance():ListFragment{
+        fun  newInstance(): ListFragment {
             return ListFragment()
         }
     }
@@ -34,7 +36,8 @@ class ListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         Log.d(TAG,"MainActivity - 반복문 전 this.modelList.size : ${this.modelList}")
         for(i in 1..10){
-            var myModel = MyModel("안녕 $i", "hello $i")
+            var myModel =
+                ListModel("안녕 $i", "hello $i")
             this.modelList.add(myModel)
         }
         Log.d(TAG,"MainActivity - 반복문 후 this.modelList.size : ${this.modelList}")

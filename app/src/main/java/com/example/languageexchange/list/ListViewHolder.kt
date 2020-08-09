@@ -1,13 +1,12 @@
-package com.example.languageexchange
+package com.example.languageexchange.list
 
 import android.util.Log
-import android.view.TextureView
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.layout_recycler_item.view.*
 
 //커스텀 뷰홀더
-class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     val TAG: String = "로그"
 
     private val lang1TextView = itemView.lang1
@@ -20,9 +19,9 @@ class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
 
     //데이터와 뷰를 묶는다
-    fun bind(myModel: MyModel){
+    fun bind(listModel: ListModel){
         Log.d("TAG", "MyViewHolder - bind() called")
-        lang1TextView.text = myModel.lang1
+        lang1TextView.text = listModel.lang1
       //  lang2TextView.text = myModel.lang2
 
     }

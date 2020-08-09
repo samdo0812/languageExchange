@@ -1,8 +1,8 @@
-package com.example.languageexchange
+package com.example.languageexchange.list
 
 import android.util.Log
 
-class MyModel(var lang1: String, var lang2: String) {
+class ListModel(var lang1: String, var lang2: String) {
 
     val TAG: String ="log"
 

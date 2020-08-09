@@ -1,24 +1,20 @@
 package com.example.languageexchange
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.languageexchange.list.ListFragment
+import com.example.languageexchange.memo.MemoFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragement_list.*
 
 class MainActivity : AppCompatActivity() {
 
     //
-    private lateinit var ListFragment:ListFragment
+    private lateinit var ListFragment: ListFragment
     private lateinit var StarFragment:StarFragment
-    private lateinit var MemoFragment:MemoFragment
+    private lateinit var MemoFragment: MemoFragment
     private lateinit var SettingFragment:SettingFragment
-
-
 
     companion object{
         const val TAG:String = "log"
@@ -34,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         bottom_nav.setOnNavigationItemSelectedListener(onBottomNavItemSelectedListner)
 
-        ListFragment = com.example.languageexchange.ListFragment.newInstance()
+        ListFragment = com.example.languageexchange.list.ListFragment.newInstance()
         supportFragmentManager.beginTransaction().add(R.id.fragments_frame, ListFragment).commit()
 
     }
@@ -44,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private val onBottomNavItemSelectedListner = BottomNavigationView.OnNavigationItemSelectedListener{
         when(it.itemId) {
             R.id.menu_list -> {
-                ListFragment = com.example.languageexchange.ListFragment.newInstance()
+                ListFragment = com.example.languageexchange.list.ListFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, ListFragment).commit()
             }
             R.id.menu_star -> {
@@ -52,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, StarFragment).commit()
             }
             R.id.menu_memo -> {
-                MemoFragment = com.example.languageexchange.MemoFragment.newInstance()
+                MemoFragment = com.example.languageexchange.memo.MemoFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, MemoFragment).commit()
             }
             R.id.menu_setting -> {
