@@ -1,7 +1,7 @@
 package com.example.languageexchange.memo
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,15 +9,12 @@ import androidx.fragment.app.Fragment
 import com.example.languageexchange.R
 import kotlinx.android.synthetic.main.fragement_memo.*
 
-
 class MemoFragment : Fragment() {
-
-    //private lateinit var myRecyclerAdapter_memo: MyRecyclerAdapter_memo
-    lateinit var getWord :String
+    val bundle = arguments
+    private lateinit var AddWordFragment:AddWordFragment
+    val TAG: String = "로그"
 
     companion object{
-        const val TAG : String = "로그"
-
         fun  newInstance(): MemoFragment {
             return MemoFragment()
         }
@@ -34,11 +31,27 @@ class MemoFragment : Fragment() {
     onResume
     */
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        Log.d("h","h")
+
+
+        if (bundle!=null){
+            Log.d("TAG", "argument IN")
+            val word = arguments?.getString("word")
+            return_word.text = word
+        }
+
+
         val view = inflater.inflate(R.layout.fragement_memo, container, false)
         return view
     }
@@ -47,18 +60,15 @@ class MemoFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //go to word add activity
+        Log.d("TAG", "MemoFragment IN")
         add_word.setOnClickListener {
-            activity?.let {
-                val intent = Intent(activity, AddWord::class.java)
-                startActivity(intent)
-                }
-            }
-        val arg = arguments
-        if (arg != null) {
-            val data = arguments?.getString("word")
-           // Log.d("test",data)
+           val transaction = activity?.supportFragmentManager?.beginTransaction()
+            transaction?.replace(R.id.fragments_frame, AddWordFragment())
+            transaction?.disallowAddToBackStack()
+            transaction?.commit()
         }
+
+
     }
 }
 

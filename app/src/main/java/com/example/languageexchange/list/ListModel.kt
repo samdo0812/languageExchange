@@ -8,6 +8,6 @@ class ListModel(var lang1: String, var lang2: String) {
 
     //기본 생성자
     init{
-        Log.d(TAG,"MyModel - init called")
+       // Log.d(TAG,"MyModel - init called")
     }
 }

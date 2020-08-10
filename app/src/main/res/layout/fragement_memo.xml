@@ -8,6 +8,13 @@
     android:gravity="center"
     >
 
+    <TextView
+        android:textColor="#1C1919"
+        android:id="@+id/return_word"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        />
 
     <Button
         android:id="@+id/add_word"

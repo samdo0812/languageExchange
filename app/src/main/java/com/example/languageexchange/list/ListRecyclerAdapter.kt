@@ -1,13 +1,12 @@
-package com.example.languageexchange
+package com.example.languageexchange.list
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.languageexchange.list.ListModel
-import com.example.languageexchange.list.ListViewHolder
+import com.example.languageexchange.R
 
-class MyRecyclerAdapter: RecyclerView.Adapter<ListViewHolder>() {
+class ListRecyclerAdapter: RecyclerView.Adapter<ListViewHolder>() {
 
 
     private var modelList = ArrayList<ListModel>()
@@ -28,7 +27,7 @@ class MyRecyclerAdapter: RecyclerView.Adapter<ListViewHolder>() {
 
     //뷰와 뷰홀더가 묶였을 때
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        Log.d("TAG", "MyRecyclerAdapter - onBindViewHolder() called")
+        //Log.d("TAG", "MyRecyclerAdapter - onBindViewHolder() called")
         holder.bind(this.modelList[position])
     }
 

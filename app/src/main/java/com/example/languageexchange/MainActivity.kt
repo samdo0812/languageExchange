@@ -26,8 +26,6 @@ class MainActivity : AppCompatActivity() {
 
         //레이아웃과 연결
         setContentView(R.layout.activity_main)
-        Log.d(TAG,"MainActivity - onCreate() called")
-
         bottom_nav.setOnNavigationItemSelectedListener(onBottomNavItemSelectedListner)
 
         ListFragment = com.example.languageexchange.list.ListFragment.newInstance()
