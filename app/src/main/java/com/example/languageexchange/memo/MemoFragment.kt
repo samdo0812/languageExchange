@@ -5,14 +5,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.languageexchange.R
 import kotlinx.android.synthetic.main.fragement_memo.*
 
 class MemoFragment : Fragment() {
-    val bundle = arguments
+   // val bundle = arguments
     private lateinit var AddWordFragment:AddWordFragment
     val TAG: String = "로그"
+    lateinit var word: String
 
     companion object{
         fun  newInstance(): MemoFragment {
@@ -33,7 +35,7 @@ class MemoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+       // Log.d("data : ", arguments?.getString("word"))
     }
 
     override fun onCreateView(
@@ -42,15 +44,10 @@ class MemoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        Log.d("h","h")
-
-
-        if (bundle!=null){
-            Log.d("TAG", "argument IN")
-            val word = arguments?.getString("word")
-            return_word.text = word
+        if (arguments!=null){
+            word = arguments?.getString("word").toString()
+            return_word?.text = word
         }
-
 
         val view = inflater.inflate(R.layout.fragement_memo, container, false)
         return view
@@ -64,7 +61,7 @@ class MemoFragment : Fragment() {
         add_word.setOnClickListener {
            val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragments_frame, AddWordFragment())
-            transaction?.disallowAddToBackStack()
+       //     transaction?.disallowAddToBackStack()
             transaction?.commit()
         }
 

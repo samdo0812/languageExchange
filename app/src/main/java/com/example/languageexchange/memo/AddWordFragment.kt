@@ -42,14 +42,12 @@ class AddWordFragment : Fragment() {
 
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             memoFragment.arguments = bundle
-            transaction?.replace(R.id.fragments_frame, MemoFragment()) // <- Fragment 이동 시키는 부분 애매,
+            transaction?.replace(R.id.fragments_frame, MemoFragment())
            // transaction?.disallowAddToBackStack()
             transaction?.commit()
-            Log.d("TAG", word)
+            Log.d("TAG", bundle.toString())
         }
     }
-
-
 }
 
 
