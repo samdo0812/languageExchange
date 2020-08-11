@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import com.example.languageexchange.R
 import kotlinx.android.synthetic.main.fragement_memo.*
 
@@ -15,6 +16,7 @@ class MemoFragment : Fragment() {
     private lateinit var AddWordFragment:AddWordFragment
     val TAG: String = "로그"
     lateinit var word: String
+    lateinit var result:String
 
     companion object{
         fun  newInstance(): MemoFragment {
@@ -35,7 +37,11 @@ class MemoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // Log.d("data : ", arguments?.getString("word"))
+        setFragmentResultListener("word") { key, bundle ->
+             result = bundle.getString("word").toString()
+             return_word?.text = result
+
+        }
     }
 
     override fun onCreateView(
@@ -44,10 +50,7 @@ class MemoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        if (arguments!=null){
-            word = arguments?.getString("word").toString()
-            return_word?.text = word
-        }
+
 
         val view = inflater.inflate(R.layout.fragement_memo, container, false)
         return view
@@ -61,11 +64,21 @@ class MemoFragment : Fragment() {
         add_word.setOnClickListener {
            val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragments_frame, AddWordFragment())
-       //     transaction?.disallowAddToBackStack()
+            transaction?.disallowAddToBackStack()
             transaction?.commit()
         }
 
+        if (savedInstanceState != null && savedInstanceState.get("word") != null) {
+            // 이전에 저장한 데이터 사용
+            return_word?.text = result
 
+        }
+    }
+
+    //fragment이동 후 다시 왔을 때 데이터 유지하기 위해서
+   override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("word",result)
     }
 }
 

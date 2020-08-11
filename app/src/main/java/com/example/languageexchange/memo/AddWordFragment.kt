@@ -39,6 +39,8 @@ class AddWordFragment : Fragment() {
             val bundle:Bundle = Bundle()
             bundle.putString("word",word)
 
+            parentFragmentManager.setFragmentResult("word", bundle)
+
 
             val transaction = activity?.supportFragmentManager?.beginTransaction()
             memoFragment.arguments = bundle
