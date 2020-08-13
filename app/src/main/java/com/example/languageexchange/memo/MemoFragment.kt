@@ -37,11 +37,12 @@ class MemoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setFragmentResultListener("word") { key, bundle ->
-             result = bundle.getString("word").toString()
-             return_word?.text = result
 
-        }
+        //addWordFragment -> MemoFragment put in data, data setting
+      //  setFragmentResultListener("word") { key, bundle ->
+        //     result = bundle.getString("word").toString()
+          //   .text = result
+        //}
     }
 
     override fun onCreateView(
@@ -49,9 +50,6 @@ class MemoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-
         val view = inflater.inflate(R.layout.fragement_memo, container, false)
         return view
     }
@@ -59,8 +57,7 @@ class MemoFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        Log.d("TAG", "MemoFragment IN")
+        //단어추가 프래그먼트로 이동
         add_word.setOnClickListener {
            val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragments_frame, AddWordFragment())
@@ -68,15 +65,9 @@ class MemoFragment : Fragment() {
             transaction?.commit()
         }
 
-        if (savedInstanceState != null && savedInstanceState.get("word") != null) {
-            // 이전에 저장한 데이터 사용
-            return_word?.text = result
-
-        }
     }
 
-    //fragment이동 후 다시 왔을 때 데이터 유지하기 위해서
-   override fun onSaveInstanceState(outState: Bundle) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString("word",result)
     }

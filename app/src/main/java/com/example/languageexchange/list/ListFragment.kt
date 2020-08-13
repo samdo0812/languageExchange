@@ -33,13 +33,11 @@ class ListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        Log.d(TAG,"MainActivity - 반복문 전 this.modelList.size : ${this.modelList}")
         for(i in 1..10){
             var myModel =
                 ListModel("안녕 $i", "hello $i")
             this.modelList.add(myModel)
         }
-        Log.d(TAG,"MainActivity - 반복문 후 this.modelList.size : ${this.modelList}")
 
         //어댑터 인스턴스 생성
         listRecyclerAdapter = ListRecyclerAdapter()
@@ -56,7 +54,6 @@ class ListFragment : Fragment() {
     //프레그먼트를 안고 있는 엑티비티에 붙었을 때
     override fun onAttach(context: Context) {
         super.onAttach(context)
-      //  Log.d(TAG,"ListFragment - onAttach() called")
     }
 
     //뷰가 생성 되었을 때
@@ -66,8 +63,6 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-     //   Log.d(TAG,"ListFragment - onCreateView() called")
-
         val view = inflater.inflate(R.layout.fragement_list, container, false)
         return view
     }

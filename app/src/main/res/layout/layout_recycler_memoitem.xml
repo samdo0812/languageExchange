@@ -20,12 +20,6 @@
             android:layout_height="wrap_content"
             android:text="word"/>
 
-        <TextView
-            android:padding="10dp"
-            android:id="@+id/recycle_addword_mean"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="mean"/>
 
     </LinearLayout>
 
