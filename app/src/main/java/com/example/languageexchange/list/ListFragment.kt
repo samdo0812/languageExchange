@@ -24,11 +24,26 @@ class ListFragment : Fragment() {
         }
     }
 
+    //프레그먼트를 안고 있는 엑티비티에 붙었을 때
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+    }
+
     //메모리에 올라갔을 때
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG,"ListFragment - onCreate() called")
 
+    }
+    //뷰가 생성 되었을 때
+    //프래그먼트와 레이아웃을 연결시켜주는 부분이다.
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragement_list, container, false)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -51,19 +66,6 @@ class ListFragment : Fragment() {
 
         }
     }
-    //프레그먼트를 안고 있는 엑티비티에 붙었을 때
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-    }
 
-    //뷰가 생성 되었을 때
-    //프래그먼트와 레이아웃을 연결시켜주는 부분이다.
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragement_list, container, false)
-        return view
-    }
+
 }

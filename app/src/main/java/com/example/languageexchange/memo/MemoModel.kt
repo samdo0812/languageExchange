@@ -1,4 +1,4 @@
 package com.example.languageexchange.memo
 
-class MemoModel() {
+class MemoModel(var word:String) {
 }

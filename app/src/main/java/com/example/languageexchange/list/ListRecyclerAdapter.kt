@@ -27,7 +27,6 @@ class ListRecyclerAdapter: RecyclerView.Adapter<ListViewHolder>() {
 
     //뷰와 뷰홀더가 묶였을 때
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        //Log.d("TAG", "MyRecyclerAdapter - onBindViewHolder() called")
         holder.bind(this.modelList[position])
     }
 

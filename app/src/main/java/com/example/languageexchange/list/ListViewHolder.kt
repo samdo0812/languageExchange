@@ -20,9 +20,8 @@ class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     //데이터와 뷰를 묶는다
     fun bind(listModel: ListModel){
-       // Log.d("TAG", "MyViewHolder - bind() called")
         lang1TextView.text = listModel.lang1
-      //  lang2TextView.text = myModel.lang2
+      //lang2TextView.text = myModel.lang2
 
     }
 }

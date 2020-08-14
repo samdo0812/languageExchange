@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 ListFragment = com.example.languageexchange.list.ListFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, ListFragment).commit()
             }
+
             R.id.menu_star -> {
                 StarFragment = com.example.languageexchange.StarFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, StarFragment).commit()
@@ -48,6 +49,7 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_memo -> {
                 MemoFragment = com.example.languageexchange.memo.MemoFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, MemoFragment).commit()
+
             }
             R.id.menu_setting -> {
                 SettingFragment = com.example.languageexchange.SettingFragment.newInstance()
