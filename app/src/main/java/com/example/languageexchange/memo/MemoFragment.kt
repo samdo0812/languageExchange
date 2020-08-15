@@ -1,6 +1,9 @@
 package com.example.languageexchange.memo
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
+import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -51,17 +54,20 @@ class MemoFragment : Fragment() {
         return view
     }
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        //단어추가 프래그먼트로 이동
+        //AddWordFragment로 이동
         add_word.setOnClickListener {
            val transaction = activity?.supportFragmentManager?.beginTransaction()
             transaction?.replace(R.id.fragments_frame, AddWordFragment())
             transaction?.disallowAddToBackStack()
             transaction?.commit()
         }
+      /*  if(savedInstanceState!=null){
+            var data:ArrayList<MemoModel> = savedInstanceState.getString("data") as ArrayList<MemoModel>
+        }*/
 
+        //AddWordFragment에서 넘어온 데이터가 있다면, 리사이클러 뷰로 표시
         if(this.modelList != null) {
             MemoRecyclerAdapter = MemoRecyclerAdapter()
             MemoRecyclerAdapter.submitList(this.modelList)
@@ -72,12 +78,15 @@ class MemoFragment : Fragment() {
                 adapter = MemoRecyclerAdapter
             }
         }
-
     }
+/*
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("word",result)
+        outState.putString("data",word)
     }
+*/
+
+
 }
 
