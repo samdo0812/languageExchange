@@ -9,7 +9,9 @@ import android.widget.Adapter
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.languageexchange.R
+import kotlinx.android.synthetic.main.fragement_list.*
 import kotlinx.android.synthetic.main.fragement_memo.*
 
 class MemoFragment : Fragment() {
@@ -19,6 +21,8 @@ class MemoFragment : Fragment() {
     lateinit var word: String
     lateinit var result:String
     lateinit var MemoRecyclerAdapter:MemoRecyclerAdapter
+
+    var modelList = ArrayList<MemoModel>()
 
     companion object{
         fun  newInstance(): MemoFragment {
@@ -32,8 +36,10 @@ class MemoFragment : Fragment() {
         //addWordFragment -> MemoFragment put in data, data setting
         setFragmentResultListener("word") { key, bundle ->
              result = bundle.getString("word").toString()
-            //return_word.text = result
+            var myModel = MemoModel(result)
+            this.modelList.add(myModel)
         }
+
     }
 
     override fun onCreateView(
@@ -56,8 +62,16 @@ class MemoFragment : Fragment() {
             transaction?.commit()
         }
 
-      //  MemoRecyclerAdapter = MemoRecyclerAdapter()
-       // MemoRecyclerAdapter.submitList()
+        if(this.modelList != null) {
+            MemoRecyclerAdapter = MemoRecyclerAdapter()
+            MemoRecyclerAdapter.submitList(this.modelList)
+
+            memo_recycler_view.apply {
+                layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+                //어댑터 장착
+                adapter = MemoRecyclerAdapter
+            }
+        }
 
     }
 

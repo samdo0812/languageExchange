@@ -33,8 +33,8 @@ class ListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG,"ListFragment - onCreate() called")
-
     }
+
     //뷰가 생성 되었을 때
     //프래그먼트와 레이아웃을 연결시켜주는 부분이다.
     override fun onCreateView(
@@ -49,8 +49,7 @@ class ListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         for(i in 1..10){
-            var myModel =
-                ListModel("안녕 $i", "hello $i")
+            var myModel = ListModel("안녕 $i", "hello $i")
             this.modelList.add(myModel)
         }
 
