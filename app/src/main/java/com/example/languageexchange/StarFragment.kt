@@ -21,14 +21,14 @@ class StarFragment : Fragment() {
     //메모리에 올라갔을 때
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG,"StarFragment - onCreate() called")
+
 
     }
 
     //프레그먼트를 안고 있는 엑티비티에 붙었을 때
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(TAG,"StarFragment - onAttach() called")
+
     }
 
     //뷰가 생성 되었을 때
@@ -38,7 +38,6 @@ class StarFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG,"StarFragment - onCreateView() called")
 
         val view = inflater.inflate(R.layout.fragement_star, container, false)
         return view

@@ -21,14 +21,14 @@ class SettingFragment : Fragment() {
     //메모리에 올라갔을 때
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG,"SettingFragment - onCreate() called")
+
 
     }
 
     //프레그먼트를 안고 있는 엑티비티에 붙었을 때
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Log.d(TAG,"SettingFragment - onAttach() called")
+
     }
 
     //뷰가 생성 되었을 때
@@ -38,7 +38,7 @@ class SettingFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        Log.d(TAG,"SettingFragment - onCreateView() called")
+
 
         val view = inflater.inflate(R.layout.fragement_setting, container, false)
         return view
